@@ -13,9 +13,9 @@ items = [
   { id: 3, body: 'foobar' }
 ]
 
-items.map! { |hash| hash.values[0] }
+item_ids = items.map { |hash| hash.values[0] }
 
-p items
+p item_ids
 
 # or
 
@@ -25,6 +25,20 @@ items = [
   { id: 3, body: 'foobar' }
 ]
 
-items.map! { |hash| hash[:id] }
+item_ids = items.map { |hash| hash[:id] }
 
-p items
+p item_ids
+
+# keys[1]
+
+items = [
+  { id: 1, body: 'foo' },
+  { id: 2, body: 'bar' },
+  { id: 3, body: 'foobar' }
+]
+
+p items[0].keys
+
+item_keys = items.map { |hash| hash.keys[1] }
+
+p item_keys
