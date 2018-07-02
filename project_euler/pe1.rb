@@ -6,27 +6,20 @@ require "bigdecimal/math"
 # start with a fizzbuzz type program
 # have a variable to keep track of sum
 # add to sum whenever you should
-# 10000.times do
-#   def euler1(num)
-#     index = 1
-#     sum = 0
-#     (num - 1).times do
-#       if index % 3 == 0
-#         sum += index
-#       elsif index % 5 == 0
-#         sum += index
-#       end
-#       index += 1
-#     end
-#     return sum
-#   end
+def euler1(num)
+  index = 1
+  sum = 0
+  (num - 1).times do
+    if index % 3 == 0
+      sum += index
+    elsif index % 5 == 0
+      sum += index
+    end
+    index += 1
+  end
+  return sum
+end
 
-#   # p 'Enter a number to test the first project Euler with.'
-#   # input_number = gets.chomp.to_i
-#   # p "The summ of all multiples of 3 and 5 below #{input_number} is:"
-#   p euler1(1000)
-# end
-10000.times do
 def euler1BigJumps(num)
   index = 3
   sum = 0
@@ -47,7 +40,12 @@ def euler1BigJumps(num)
   return sum
 end
 
-p euler1BigJumps(1000)
-end
+p 'Enter a number to test the first project Euler with.'
+input_number = gets.chomp.to_i
+p "The sum of all multiples of 3 and 5 below #{input_number} is:"
+# 10000.times do
+  p euler1(input_number)
+  p euler1BigJumps(input_number)
+# end
 
-puts Benchmark.measure{BigMath.PI(10_000)}
+# puts Benchmark.measure{BigMath.PI(10_000)}
