@@ -17,54 +17,102 @@
 # 1,2,3,5,8,13,21,34,55,89
 # evens are 2, 8, 34
 
-def euler_2 (num)
-  # p "hello #{num}"
-  if num == 1
-    return 0
-  end
+# def euler_2 (num)
+#   # p "hello #{num}"
+#   if num == 1
+#     return 0
+#   end
 
-  if num == 2
-    return 2
-  end
+#   if num == 2
+#     return 2
+#   end
 
-  sum = 2
-  first = 1
-  second = 2
-  third = 3
+#   sum = 2
+#   first = 1
+#   second = 2
+#   third = 3
+#   i = 2
+#   while true do
+#     if i == num
+#       break
+#     end
+
+#     third = first + second
+
+#     if third % 2 == 0
+#       sum += third
+#       p third
+#     end
+#     first = second
+#     second = third
+#     i += 1
+#   end
+#   sum
+# end
+
+# p '1 => should be 0'
+# p euler_2(1)
+# p '2 => should be 2'
+# p euler_2(2)
+# p '3 => should be 2'
+# p euler_2(3)
+# p '4 => should be 2'
+# p euler_2(4)
+# p '5 => should be 10'
+# p euler_2(5)
+# p '10 => should be 44'
+# p euler_2(10)
+# p '7 => should be 10'
+# p euler_2(7)
+# p 'not sure, somthing big'
+# p euler_2(32)
+
+# def euler_2b(num)
+#   i1 = 0
+#   i2 = 1
+#   fib_array = [1, 2]
+
+#   (num - 2).times do
+#     sum = fib_array[i1] + fib_array[i2]
+#     fib_array << sum
+
+#     i1 += 1
+#     i2 += 1
+#   end
+
+#   sum = 0
+#   fib_array.each do |num|
+#     if num%2 == 0
+#       sum += num
+#     end
+#   end
+#   sum
+# end
+
+# p euler_2b(10)
+
+# Recursive
+
+def fibonacci(num)
+  if num < 2
+    num
+  else
+    fibonacci(num-1) + fibonacci(num-2)
+  end
+end
+
+def sum_fibs(num)
+  sum = 0
   i = 2
-  while third < 4000000 do
-    if i == num
+  num.times do
+    value = fibonacci(i)
+    if value > 4000000
       break
+    elsif value % 2 == 0
+      sum += value
     end
-
-    third = first + second
-
-    if third % 2 == 0
-      sum += third
-    end
-    first = second
-    second = third
     i += 1
   end
   sum
 end
-
-p '1 => should be 0'
-p euler_2(1)
-p '2 => should be 2'
-p euler_2(2)
-p '3 => should be 2'
-p euler_2(3)
-p '4 => should be 2'
-p euler_2(4)
-p '5 => should be 10'
-p euler_2(5)
-p '10 => should be 44'
-p euler_2(10)
-p '7 => should be 10'
-p euler_2(7)
-p 'not sure, somthing big'
-p euler_2(32)
-
-# Recursive
-# s
+p sum_fibs(10000)
