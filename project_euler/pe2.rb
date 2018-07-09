@@ -106,13 +106,13 @@ def sum_fibs(num)
   i = 2
   num.times do
     value = fibonacci(i)
-    if value > 4000000
+    if value > 4_000_000
       break
-    elsif value % 2 == 0
+    elsif (value % 2).zero?
       sum += value
     end
     i += 1
   end
   sum
 end
-p sum_fibs(10000)
+p sum_fibs(10_000)
