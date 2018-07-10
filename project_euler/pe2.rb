@@ -118,6 +118,7 @@
 # p sum_fibs(10_000)
 
 # demo
+#------------------------------
 fibs = [1, 2]
 next_fib = 3
 sum = 2
@@ -131,6 +132,8 @@ while next_fib < 4000000
   next_fib = fibs[-1] + fibs[-2]
 end
 
+p sum
+
 # even_fibs = fibs.select {|fib| fib % 2 == 0}
 
 # sum = 0
@@ -138,4 +141,26 @@ end
 #   sum += fib
 # end
 
+# demo with recursion
+#------------------------------
+
+def fibonacci(num)
+  if num == 1 || num == 2
+    return 1
+  else
+    fibonacci(num-1) + fibonacci(num-2)
+  end
+end
+
+fib = 0
+count = 0
+sum = 0
+
+while fib < 4000000
+  count += 1
+  fib = fibonacci(count)
+  if fib % 2 == 0
+    sum += fib
+  end
+end
 p sum
