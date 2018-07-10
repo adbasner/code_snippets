@@ -93,26 +93,41 @@
 
 # Recursive
 
-def fibonacci(num)
-  if num < 2
-    num
-  else
-    fibonacci(num-1) + fibonacci(num-2)
-  end
+# def fibonacci(num)
+#   if num < 2
+#     num
+#   else
+#     fibonacci(num-1) + fibonacci(num-2)
+#   end
+# end
+
+# def sum_fibs(num)
+#   sum = 0
+#   i = 2
+#   num.times do
+#     value = fibonacci(i)
+#     if value > 4_000_000
+#       break
+#     elsif (value % 2).zero?
+#       sum += value
+#     end
+#     i += 1
+#   end
+#   sum
+# end
+# p sum_fibs(10_000)
+
+# demo
+fibs = [1, 2]
+while (fibs[-2] + fibs[-2]) < 4000000
+  fibs << (fibs[-2] + fibs[-1])
 end
 
-def sum_fibs(num)
-  sum = 0
-  i = 2
-  num.times do
-    value = fibonacci(i)
-    if value > 4_000_000
-      break
-    elsif (value % 2).zero?
-      sum += value
-    end
-    i += 1
-  end
-  sum
+even_fibs = fibs.select {|fib| fib % 2 == 0}
+
+sum = 0
+even_fibs.each do |fib|
+  sum += fib
 end
-p sum_fibs(10_000)
+
+p sum
