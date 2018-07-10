@@ -119,15 +119,23 @@
 
 # demo
 fibs = [1, 2]
-while (fibs[-2] + fibs[-2]) < 4000000
-  fibs << (fibs[-2] + fibs[-1])
+next_fib = 3
+sum = 2
+while next_fib < 4000000
+  fibs << next_fib
+  #space complexity
+  fibs.shift
+  if next_fib % 2 == 0
+    sum += next_fib
+  end
+  next_fib = fibs[-1] + fibs[-2]
 end
 
-even_fibs = fibs.select {|fib| fib % 2 == 0}
+# even_fibs = fibs.select {|fib| fib % 2 == 0}
 
-sum = 0
-even_fibs.each do |fib|
-  sum += fib
-end
+# sum = 0
+# even_fibs.each do |fib|
+#   sum += fib
+# end
 
 p sum
